@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naveen - Web Developer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="./favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo"> < Naveen S /> </a>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#experience" class="nav-link">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="resume-btn"
+              href="https://drive.google.com/file/d/16yJSNqNZD-rcotlTOKrwln12TpS2mQDo/view?usp=sharing"
+              target="_blank"
+            >
+              Resume
+            </a>
+          </li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Hi, I'm <span class="highlight">Naveen S</span>
+          </h1>
+          <h2 class="hero-subtitle">
+            <span id="typewriter"></span>
+          </h2>
+          <p class="hero-description">
+            Fullstack Developer with <span id="years-experience"></span> years
+            of experience building scalable SaaS and CRM applications. Skilled
+            in Node.js, Vue.js, and MongoDB, I specialize in crafting robust
+            APIs, optimizing performance, and delivering reliable backend
+            systems.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#experience" class="btn btn-secondary">View My Work</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="profile-container">
+            <div class="experience-badge">
+              <span id="years-experience-tag"></span> Years Experience
+            </div>
+            <img
+              src="./Profile.jpeg"
+              alt="Alex Johnson - Web Developer"
+              class="profile-image"
+            />
+          </div>
+        </div>
+
+        <script>
+          // Dynamically calculate years of experience from 2023
+          const startYear = 2023;
+          const now = new Date();
+          let years = now.getFullYear() - startYear;
+          // If before May, subtract one year for partial year
+          if (now.getMonth() < 4) years -= 1;
+          document.getElementById("years-experience").textContent =
+            years + (years === 1 ? "" : "+");
+          document.getElementById("years-experience-tag").textContent =
+            years + (years === 1 ? "" : "+");
+        </script>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>My Objective</h3>
+            <p>
+              I am a passionate Full Stack Developer with hands-on experience in
+              building modern web applications using Vue.js, Node.js, Koa.js,
+              and MongoDB. I specialize in developing responsive user interfaces
+              and scalable backend services, delivering end-to-end solutions
+              that are performant and maintainable. My experience spans across
+              creating RESTful APIs, handling real-time data, and optimizing
+              applications for both speed and security.
+            </p>
+            <p>
+              With a strong foundation in both frontend and backend
+              technologies, I am adept at bridging the gap between design and
+              functionality. My goal is to create seamless user experiences
+              while ensuring robust application performance. I thrive in
+              collaborative environments, where I can contribute to innovative
+              projects and continuously enhance my skills.
+            </p>
+            <!-- <div class="stats">
+              <div class="stat">
+                <h4>50+</h4>
+                <p>Projects Completed</p>
+              </div>
+              <div class="stat">
+                <h4>5+</h4>
+                <p>Years Experience</p>
+              </div>
+              <div class="stat">
+                <h4>30+</h4>
+                <p>Happy Clients</p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Software Engineer</h3>
+              <h4>Avow Solutions</h4>
+              <span class="timeline-date">2023 Jul - Present</span>
+              <ul>
+                <li>
+                  Migrated Vue 2 (Options API) → Vue 3 (Composition API) and
+                  Node 14 → Node 21, leading to a 30% boost in performance and
+                  smoother upgrade paths.
+                </li>
+                <li>
+                  Improved client-side speed by 40% using Vue TanStack Query and
+                  reduced backend load by 50% with Redis/LRU caching; minimized
+                  redundant data fetches across the app.
+                </li>
+                <li>
+                  Implemented RBAC to manage organizational hierarchy and
+                  control data sharing; added Jest-based unit tests on the
+                  server side to ensure reliability and prevent regressions.
+                </li>
+                <li>
+                  Enhanced MongoDB performance through optimized aggregations,
+                  indexes, and search indexes; integrated Atlas Search for
+                  faster transaction retrieval, speeding up analyst workflows by
+                  50%; set up a local Atlas deployment for better dev and high
+                  availability.
+                </li>
+                <li>
+                  Built dynamic custom form fields with Vue Form, increasing
+                  customer acquisition by 33% during live demos; engineered a
+                  complete Warehouse Management System using Vue.js,
+                  Node.js/Koa, and MongoDB.
+                </li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">Type Script</span>
+                <span class="tag">Node Js</span>
+                <span class="tag">Koa Js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Vue Js</span>
+                <span class="tag">etc...</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Software Engineer Trainee</h3>
+              <h4>Avow Solutions</h4>
+              <span class="timeline-date">2022 Dec - 2023 Jun</span>
+              <ul>
+                <li>
+                  Enabled multi-language support in three large CRM modules
+                  using Vue I18n to improve global usability.
+                </li>
+                <li>
+                  Integrated OAuth 2.0 login (Google, Microsoft, Facebook) with
+                  Passport.js, cutting login time by 60% for CargoEZ.
+                </li>
+                <li>
+                  Built a quiz management system using Vue.js, Node.js, JWT, and
+                  MongoDB with secure user access.
+                </li>
+                <li>
+                  Developed a Gmail-like web app using Vue.js and Element Plus
+                  with a focus on realistic UI and user interaction.
+                </li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Vue Js</span>
+                <span class="tag">Koa Js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Frontend</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>HTML5/CSS3</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>JavaScript</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Vue Js</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Element Plus</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+
+            <div class="tech-tags">
+              <span class="tag">Bootstrap</span>
+              <span class="tag">Pinia Store</span>
+              <span class="tag">Vue Form</span>
+              <span class="tag">TanStack Vue Query</span>
+              <span class="tag">Vue I18n</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Backend</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Node Js</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Koa Js</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Express Js</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>REST API</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+
+            <div class="tech-tags">
+              <span class="tag">gRPC</span>
+              <span class="tag">JWT</span>
+              <span class="tag">LRU Caching</span>
+              <span class="tag">OAuth 2.0</span>
+              <span class="tag">Graph QL</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Database</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>MongoDB</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Atlas Search</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Indexing</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90"></div>
+              </div>
+            </div>
+
+            <div class="tech-tags">
+              <span class="tag">Redis</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Tools</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Git</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Docker</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="75"></div>
+              </div>
+            </div>
+
+            <div class="tech-tags">
+              <span class="tag">BurpSuite</span>
+              <span class="tag">Postman</span>
+              <span class="tag">N8N</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Jira</span>
+              <span class="tag">Agile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+          <p class="contact-description">
+            Let's connect and discuss opportunities
+          </p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon"><i data-lucide="mail"></i></div>
+              <div>naveensk1672002@gmail.com</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i data-lucide="phone"></i></div>
+              <div>+91 7871898927</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+              <div>Chennai, Tamil Nadu, India</div>
+            </div>
+          </div>
+
+          <div class="contact-icons">
+            <a
+              @click.prevent
+              target="_blank"
+              href="mailto:naveensk1672002@gmail.com"
+              class="contact-icon-link"
+              title="naveensk1672002@gmail.com"
+            >
+              <i data-lucide="mail"></i>
+            </a>
+            <a
+              @click.prevent
+              target="_blank"
+              href="tel:+91 7871898927"
+              class="contact-icon-link"
+              title="+91 7871898927"
+            >
+              <i data-lucide="phone"></i>
+            </a>
+            <a
+              @click.prevent
+              href="https://github.com/alexjohnson"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-icon-link"
+              title="GitHub"
+            >
+              <i data-lucide="github"></i>
+            </a>
+            <a
+              @click.prevent
+              href="https://linkedin.com/in/alexjohnson"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-icon-link"
+              title="LinkedIn"
+            >
+              <i data-lucide="linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Modal -->
+    <!-- <div id="resumeModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Resume</h3>
+          <span class="close" onclick="closeResumeModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="resume-content">
+            <div class="resume-header">
+              <h1>Alex Johnson</h1>
+              <p>Web Developer</p>
+              <div class="resume-contact">
+                <span>alex.johnson@email.com</span> •
+                <span>+1 (555) 123-4567</span> •
+                <span>San Francisco, CA</span>
+              </div>
+            </div>
+
+            <div class="resume-section">
+              <h3>Professional Summary</h3>
+              <p>
+                Experienced web developer with 5+ years of expertise in creating
+                responsive, user-friendly websites and applications. Proficient
+                in modern JavaScript frameworks and backend technologies.
+              </p>
+            </div>
+
+            <div class="resume-section">
+              <h3>Experience</h3>
+              <div class="resume-job">
+                <h4>Senior Frontend Developer - TechCorp Solutions</h4>
+                <p class="resume-date">2021 - Present</p>
+                <ul>
+                  <li>Led development of enterprise web applications</li>
+                  <li>Improved application performance by 40%</li>
+                  <li>Mentored junior developers</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resume-section">
+              <h3>Skills</h3>
+              <p>
+                <strong>Frontend:</strong> HTML5, CSS3, JavaScript, React,
+                TypeScript
+              </p>
+              <p><strong>Backend:</strong> Node.js, Python, PHP, MySQL</p>
+              <p><strong>Tools:</strong> Git, AWS, Docker, Figma</p>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn-primary" onclick="downloadResume()">
+              Download PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
