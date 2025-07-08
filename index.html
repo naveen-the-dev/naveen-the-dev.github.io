@@ -3,534 +3,810 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naveen - Web Developer</title>
+    <title>Tech Portfolio - Full Stack Developer</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/png" href="./favicon.ico" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="#home" class="nav-logo"> < Naveen S /> </a>
-        <ul class="nav-menu" id="nav-menu">
-          <li class="nav-item">
-            <a href="#home" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="#about" class="nav-link">About</a>
-          </li>
-          <li class="nav-item">
-            <a href="#experience" class="nav-link">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a href="#skills" class="nav-link">Skills</a>
-          </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="resume-btn"
-              href="https://drive.google.com/file/d/16yJSNqNZD-rcotlTOKrwln12TpS2mQDo/view?usp=sharing"
-              target="_blank"
-            >
-              Resume
-            </a>
-          </li>
-        </ul>
-        <div class="hamburger" id="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+    <!-- Top Navigation Bar -->
+    <div class="top-navbar">
+      <div class="navbar-left">
+        <div class="nav-logo">
+          <h2>< Naveen S /></h2>
         </div>
+        <span class="open-to-work">
+          <i class="fas fa-circle"></i>
+          Open to Work
+        </span>
       </div>
+      <div class="navbar-right">
+        <div class=" ">
+          <i class="fas fa-envelope"></i>
+          <span>naveensk1672002@gmail.com</span>
+        </div>
+        <div class=" ">
+          <i class="fas fa-phone"></i>
+          <span>+91 7871898927</span>
+        </div>
+
+        <a class="resume-btn" onclick="openResume()" target="_blank">
+          Resume
+        </a>
+      </div>
+    </div>
+
+    <!-- Vertical Sidebar Navigation -->
+    <nav class="vertical-sidebar">
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#home" class="nav-link" title="Home"
+            ><i class="fas fa-home"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#experience" class="nav-link" title="Experience"
+            ><i class="fas fa-briefcase"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#projects" class="nav-link" title="Projects"
+            ><i class="fas fa-folder-open"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#skills" class="nav-link" title="Skills"
+            ><i class="fas fa-code"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#education" class="nav-link" title="Education"
+            ><i class="fas fa-graduation-cap"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#certifications" class="nav-link" title="Certifications"
+            ><i class="fas fa-certificate"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#awards" class="nav-link" title="Awards"
+            ><i class="fas fa-trophy"></i
+          ></a>
+        </li>
+        <!-- <li>
+          <a href="#roadmap" class="nav-link" title="Roadmap"
+            ><i class="fas fa-route"></i
+          ></a>
+        </li> -->
+        <li>
+          <a href="#contact" class="nav-link" title="Contact"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </li>
+      </ul>
     </nav>
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Hi, I'm <span class="highlight">Naveen S</span>
-          </h1>
-          <h2 class="hero-subtitle">
-            <span id="typewriter"></span>
-          </h2>
-          <p class="hero-description">
-            Fullstack Developer with <span id="years-experience"></span> years
-            of experience building scalable SaaS and CRM applications. Skilled
-            in Node.js, Vue.js, and MongoDB, I specialize in crafting robust
-            APIs, optimizing performance, and delivering reliable backend
-            systems.
-          </p>
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-            <a href="#experience" class="btn btn-secondary">View My Work</a>
-          </div>
-        </div>
-        <div class="hero-image">
-          <div class="profile-container">
-            <div class="experience-badge">
-              <span id="years-experience-tag"></span> Years Experience
-            </div>
-            <img
-              src="./Profile.jpeg"
-              alt="Alex Johnson - Web Developer"
-              class="profile-image"
-            />
-          </div>
-        </div>
-
-        <script>
-          // Dynamically calculate years of experience from 2023
-          const startYear = 2023;
-          const now = new Date();
-          let years = now.getFullYear() - startYear;
-          // If before May, subtract one year for partial year
-          if (now.getMonth() < 4) years -= 1;
-          document.getElementById("years-experience").textContent =
-            years + (years === 1 ? "" : "+");
-          document.getElementById("years-experience-tag").textContent =
-            years + (years === 1 ? "" : "+");
-        </script>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <div class="about-text">
-            <h3>My Objective</h3>
-            <p>
-              I am a passionate Full Stack Developer with hands-on experience in
-              building modern web applications using Vue.js, Node.js, Koa.js,
-              and MongoDB. I specialize in developing responsive user interfaces
-              and scalable backend services, delivering end-to-end solutions
-              that are performant and maintainable. My experience spans across
-              creating RESTful APIs, handling real-time data, and optimizing
-              applications for both speed and security.
-            </p>
-            <p>
-              With a strong foundation in both frontend and backend
-              technologies, I am adept at bridging the gap between design and
-              functionality. My goal is to create seamless user experiences
-              while ensuring robust application performance. I thrive in
-              collaborative environments, where I can contribute to innovative
-              projects and continuously enhance my skills.
-            </p>
-            <!-- <div class="stats">
-              <div class="stat">
-                <h4>50+</h4>
-                <p>Projects Completed</p>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Home Section -->
+      <section id="home" class="home-section">
+        <div class="container">
+          <div class="home-content">
+            <div class="profile-section">
+              <div class="profile-image">
+                <img
+                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400"
+                  alt="Profile Photo"
+                />
               </div>
-              <div class="stat">
-                <h4>5+</h4>
+              <div class="profile-info">
+                <h1 style="margin: 0px">Naveen S</h1>
+                <div class="dynamic-text" id="typewriter"></div>
+
+                <p class="about-text">
+                  Fullstack Developer with
+                  <span id="years-experience"></span> years of experience
+                  building scalable SaaS and CRM applications. Skilled in
+                  Node.js, Vue.js, and MongoDB, I specialize in crafting robust
+                  APIs, optimizing performance, and delivering reliable backend
+                  systems.
+                </p>
+              </div>
+            </div>
+
+            <div class="stats-cards">
+              <div class="stat-card">
+                <h3><span id="years-experience-tag"></span></h3>
                 <p>Years Experience</p>
               </div>
-              <div class="stat">
-                <h4>30+</h4>
-                <p>Happy Clients</p>
+              <div class="stat-card">
+                <h3>1000+</h3>
+                <p>Bugs Fixed</p>
               </div>
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-      <div class="container">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>Software Engineer</h3>
-              <h4>Avow Solutions</h4>
-              <span class="timeline-date">2023 Jul - Present</span>
-              <ul>
-                <li>
-                  Migrated Vue 2 (Options API) → Vue 3 (Composition API) and
-                  Node 14 → Node 21, leading to a 30% boost in performance and
-                  smoother upgrade paths.
-                </li>
-                <li>
-                  Improved client-side speed by 40% using Vue TanStack Query and
-                  reduced backend load by 50% with Redis/LRU caching; minimized
-                  redundant data fetches across the app.
-                </li>
-                <li>
-                  Implemented RBAC to manage organizational hierarchy and
-                  control data sharing; added Jest-based unit tests on the
-                  server side to ensure reliability and prevent regressions.
-                </li>
-                <li>
-                  Enhanced MongoDB performance through optimized aggregations,
-                  indexes, and search indexes; integrated Atlas Search for
-                  faster transaction retrieval, speeding up analyst workflows by
-                  50%; set up a local Atlas deployment for better dev and high
-                  availability.
-                </li>
-                <li>
-                  Built dynamic custom form fields with Vue Form, increasing
-                  customer acquisition by 33% during live demos; engineered a
-                  complete Warehouse Management System using Vue.js,
-                  Node.js/Koa, and MongoDB.
-                </li>
-              </ul>
-              <div class="tech-tags">
-                <span class="tag">JavaScript</span>
-                <span class="tag">Type Script</span>
-                <span class="tag">Node Js</span>
-                <span class="tag">Koa Js</span>
-                <span class="tag">MongoDB</span>
-                <span class="tag">Vue Js</span>
-                <span class="tag">etc...</span>
+              <div class="stat-card">
+                <h3>10+</h3>
+                <p>Technologies</p>
               </div>
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>Software Engineer Trainee</h3>
-              <h4>Avow Solutions</h4>
-              <span class="timeline-date">2022 Dec - 2023 Jun</span>
-              <ul>
-                <li>
-                  Enabled multi-language support in three large CRM modules
-                  using Vue I18n to improve global usability.
-                </li>
-                <li>
-                  Integrated OAuth 2.0 login (Google, Microsoft, Facebook) with
-                  Passport.js, cutting login time by 60% for CargoEZ.
-                </li>
-                <li>
-                  Built a quiz management system using Vue.js, Node.js, JWT, and
-                  MongoDB with secure user access.
-                </li>
-                <li>
-                  Developed a Gmail-like web app using Vue.js and Element Plus
-                  with a focus on realistic UI and user interaction.
-                </li>
-              </ul>
-              <div class="tech-tags">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Vue Js</span>
-                <span class="tag">Koa Js</span>
-                <span class="tag">MongoDB</span>
-              </div>
+          <script>
+            // Dynamically calculate years of experience from 2023
+            const startYear = 2023;
+            const now = new Date();
+            let years = now.getFullYear() - startYear;
+            // If before May, subtract one year for partial year
+            if (now.getMonth() < 4) years -= 1;
+            document.getElementById("years-experience").textContent =
+              years + (years === 1 ? "" : "+");
+            document.getElementById("years-experience-tag").textContent =
+              years + (years === 1 ? "" : "+");
+          </script>
+        </div>
+
+        <!-- Moving Skills Icons -->
+        <div class="skills-carousel">
+          <div class="skills-track">
+            <div class="skill-icon">
+              <i class="fab fa-html5" style="color: #e34c26"></i>
+              <span>HTML5</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fab fa-css3-alt" style="color: #1572b6"></i>
+              <span>CSS3</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fab fa-js-square" style="color: #f7df1e"></i>
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fas fa-code" style="color: #3178c6"></i>
+              <span>TypeScript</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fab fa-vuejs" style="color: #4fc08d"></i>
+              <span>Vue.js</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fab fa-node-js" style="color: #68a063"></i>
+              <span>Node.js</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fas fa-server" style="color: #68a063"></i>
+              <span>Express.js</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fas fa-server" style="color: #68a063"></i>
+              <span>Koa.js</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fas fa-leaf" style="color: #4db33d"></i>
+              <span>MongoDB</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fab fa-docker" style="color: #0db7ed"></i>
+              <span>Docker</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fab fa-git-alt" style="color: #f05032"></i>
+              <span>Git</span>
+            </div>
+            <div class="skill-icon">
+              <i class="fas fa-magnifying-glass" style="color: #f05032"></i>
+              <span>BurpSuite</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Frontend</h3>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>HTML5/CSS3</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>JavaScript</span>
-                <span>90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Vue Js</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Element Plus</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
+      <!-- Experience Section -->
+      <section id="experience" class="experience-section">
+        <div class="container">
+          <h2 class="section-title">Professional Experience</h2>
 
-            <div class="tech-tags">
-              <span class="tag">Bootstrap</span>
-              <span class="tag">Pinia Store</span>
-              <span class="tag">Vue Form</span>
-              <span class="tag">TanStack Vue Query</span>
-              <span class="tag">Vue I18n</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3>Backend</h3>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Node Js</span>
-                <span>80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Koa Js</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Express Js</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>REST API</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-
-            <div class="tech-tags">
-              <span class="tag">gRPC</span>
-              <span class="tag">JWT</span>
-              <span class="tag">LRU Caching</span>
-              <span class="tag">OAuth 2.0</span>
-              <span class="tag">Graph QL</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3>Database</h3>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>MongoDB</span>
-                <span>80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Atlas Search</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Indexing</span>
-                <span>90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-
-            <div class="tech-tags">
-              <span class="tag">Redis</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3>Tools</h3>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Git</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Docker</span>
-                <span>75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="75"></div>
-              </div>
-            </div>
-
-            <div class="tech-tags">
-              <span class="tag">BurpSuite</span>
-              <span class="tag">Postman</span>
-              <span class="tag">N8N</span>
-              <span class="tag">VS Code</span>
-              <span class="tag">Jira</span>
-              <span class="tag">Agile</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-          <p class="contact-description">
-            Let's connect and discuss opportunities
-          </p>
-          <div class="contact-items">
-            <div class="contact-item">
-              <div class="contact-icon"><i data-lucide="mail"></i></div>
-              <div>naveensk1672002@gmail.com</div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i data-lucide="phone"></i></div>
-              <div>+91 7871898927</div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i data-lucide="map-pin"></i></div>
-              <div>Chennai, Tamil Nadu, India</div>
-            </div>
-          </div>
-
-          <div class="contact-icons">
-            <a
-              @click.prevent
-              target="_blank"
-              href="mailto:naveensk1672002@gmail.com"
-              class="contact-icon-link"
-              title="naveensk1672002@gmail.com"
-            >
-              <i data-lucide="mail"></i>
-            </a>
-            <a
-              @click.prevent
-              target="_blank"
-              href="tel:+91 7871898927"
-              class="contact-icon-link"
-              title="+91 7871898927"
-            >
-              <i data-lucide="phone"></i>
-            </a>
-            <a
-              @click.prevent
-              href="https://github.com/alexjohnson"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-icon-link"
-              title="GitHub"
-            >
-              <i data-lucide="github"></i>
-            </a>
-            <a
-              @click.prevent
-              href="https://linkedin.com/in/alexjohnson"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-icon-link"
-              title="LinkedIn"
-            >
-              <i data-lucide="linkedin"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resume Modal -->
-    <!-- <div id="resumeModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Resume</h3>
-          <span class="close" onclick="closeResumeModal()">&times;</span>
-        </div>
-        <div class="modal-body">
-          <div class="resume-content">
-            <div class="resume-header">
-              <h1>Alex Johnson</h1>
-              <p>Web Developer</p>
-              <div class="resume-contact">
-                <span>alex.johnson@email.com</span> •
-                <span>+1 (555) 123-4567</span> •
-                <span>San Francisco, CA</span>
-              </div>
-            </div>
-
-            <div class="resume-section">
-              <h3>Professional Summary</h3>
-              <p>
-                Experienced web developer with 5+ years of expertise in creating
-                responsive, user-friendly websites and applications. Proficient
-                in modern JavaScript frameworks and backend technologies.
-              </p>
-            </div>
-
-            <div class="resume-section">
-              <h3>Experience</h3>
-              <div class="resume-job">
-                <h4>Senior Frontend Developer - TechCorp Solutions</h4>
-                <p class="resume-date">2021 - Present</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Software Engineer</h3>
+                <h4>Avow Solutions</h4>
+                <span class="timeline-date">2023 Jul - Present</span>
                 <ul>
-                  <li>Led development of enterprise web applications</li>
-                  <li>Improved application performance by 40%</li>
-                  <li>Mentored junior developers</li>
+                  <li>
+                    Migrated Vue 2 (Options API) → Vue 3 (Composition API) and
+                    Node 14 → Node 21, leading to a 30% boost in performance and
+                    smoother upgrade paths.
+                  </li>
+                  <li>
+                    Improved client-side speed by 40% using Vue TanStack Query
+                    and reduced backend load by 50% with Redis/LRU caching;
+                    minimized redundant data fetches across the app.
+                  </li>
+                  <li>
+                    Implemented RBAC to manage organizational hierarchy and
+                    control data sharing; added Jest-based unit tests on the
+                    server side to ensure reliability and prevent regressions.
+                  </li>
+                  <li>
+                    Enhanced MongoDB performance through optimized aggregations,
+                    indexes, and search indexes; integrated Atlas Search for
+                    faster transaction retrieval, speeding up analyst workflows
+                    by 50%; set up a local Atlas deployment for better dev and
+                    high availability.
+                  </li>
+                  <li>
+                    Built dynamic custom form fields with Vue Form, increasing
+                    customer acquisition by 33% during live demos; engineered a
+                    complete Warehouse Management System using Vue.js,
+                    Node.js/Koa, and MongoDB.
+                  </li>
                 </ul>
+
+                <div class="project-tech">
+                  <span>JavaScript</span>
+                  <span>Type Script</span>
+                  <span>MongoDB</span>
+                  <span>Vue Js</span>
+                  <span>Koa Js</span>
+                  <span>Node Js</span>
+                  <span>etc..</span>
+                </div>
               </div>
             </div>
 
-            <div class="resume-section">
-              <h3>Skills</h3>
-              <p>
-                <strong>Frontend:</strong> HTML5, CSS3, JavaScript, React,
-                TypeScript
-              </p>
-              <p><strong>Backend:</strong> Node.js, Python, PHP, MySQL</p>
-              <p><strong>Tools:</strong> Git, AWS, Docker, Figma</p>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Software Engineer Trainee</h3>
+                <h4>Avow Solutions</h4>
+                <span class="timeline-date">2022 Dec - 2023 Jun</span>
+                <ul>
+                  <li>
+                    Enabled multi-language support in three large CRM modules
+                    using Vue I18n to improve global usability.
+                  </li>
+                  <li>
+                    Integrated OAuth 2.0 login (Google, Microsoft, Facebook)
+                    with Passport.js, cutting login time by 60% for CargoEZ.
+                  </li>
+                  <li>
+                    Built a quiz management system using Vue.js, Node.js, JWT,
+                    and MongoDB with secure user access.
+                  </li>
+                  <li>
+                    Developed a Gmail-like web app using Vue.js and Element Plus
+                    with a focus on realistic UI and user interaction.
+                  </li>
+                </ul>
+                <div class="project-tech">
+                  <span>HTML5</span>
+                  <span>CSS</span>
+                  <span>Vue Js</span>
+                  <span>Koa Js</span>
+                  <span>MongoDB</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="modal-actions">
-            <button class="btn btn-primary" onclick="downloadResume()">
-              Download PDF
-            </button>
+          <!-- <div class="timeline-container">
+            <div class="timeline-left">
+              <div class="timeline-line"></div>
+              <div class="timeline-dot" data-year="2021"></div>
+              <div class="timeline-dot" data-year="2019"></div>
+            </div>
+            <div class="timeline-content-area">
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <h3>Senior Full Stack Developer</h3>
+                  <h4>TechCorp Solutions</h4>
+                  <span class="duration">2021 - Present</span>
+                  <p>
+                    Led development of enterprise web applications using React,
+                    Node.js, and MongoDB. Managed a team of 4 developers and
+                    implemented CI/CD pipelines resulting in 40% faster
+                    deployment cycles.
+                  </p>
+                  <div class="skills-used">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                    <span>AWS</span>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <h3>Full Stack Developer</h3>
+                  <h4>StartupXYZ</h4>
+                  <span class="duration">2019 - 2021</span>
+                  <p>
+                    Developed and maintained multiple client projects using
+                    Vue.js and Express.js. Built RESTful APIs and integrated
+                    third-party services. Reduced application load time by 60%
+                    through optimization.
+                  </p>
+                  <div class="skills-used">
+                    <span>Vue.js</span>
+                    <span>Express.js</span>
+                    <span>PostgreSQL</span>
+                    <span>Docker</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects-section">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-content">
+                <h3>Gmail Simulation App</h3>
+                <p>
+                  A refined web application developed using Vue.js and Element
+                  Plus, emulating Gmail’s essential functionality with a clean
+                  and modern UI.
+                </p>
+                <div class="project-tech">
+                  <span>Vue Js</span>
+                  <span>Element Plus</span>
+                  <span>Node.js</span>
+                  <span>MongoDB</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-content">
+                <h3>Quiz Management App</h3>
+                <p>
+                  Developed a dynamic quiz application using Vue.js and Element
+                  Plus for the frontend, Node.js and MongoDB for the backend,
+                  with JWT-based authentication and support for multiple input
+                  types via Element Plus components.
+                </p>
+                <div class="project-tech">
+                  <span>Vue Js</span>
+                  <span>Element Plus</span>
+                  <span>Node.js</span>
+                  <span>MongoDB</span>
+                  <span>JWT</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-content">
+                <h3>CargoEZ - OAuth</h3>
+                <p>
+                  Integrated OAuth 2.0 (Google, Microsoft, Facebook) with
+                  Passport.js for CargoEZ Portal, reducing user login time by
+                  60%.
+                </p>
+                <div class="project-tech">
+                  <span>Node Js</span>
+                  <span>Express Js</span>
+                  <span>Passport Js</span>
+                  <span>OAuth 2.0 </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div> -->
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills-section">
+        <div class="container">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+              <div class="skill-list">
+                <span class="skill-tag frontend">Vue.js</span>
+                <span class="skill-tag frontend">HTML5</span>
+                <span class="skill-tag frontend">CSS3</span>
+                <span class="skill-tag frontend">JavaScript</span>
+                <span class="skill-tag frontend">TypeScript</span>
+                <span class="skill-tag frontend">Bootstrap</span>
+                <span class="skill-tag frontend">Element Plus</span>
+                <span class="skill-tag frontend">TanStack</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3><i class="fas fa-server"></i> Backend</h3>
+              <div class="skill-list">
+                <span class="skill-tag backend">Node.js</span>
+                <span class="skill-tag backend">Express.js</span>
+                <span class="skill-tag backend">Koa.js</span>
+                <span class="skill-tag backend">REST APIs</span>
+                <span class="skill-tag backend">LRU Cache</span>
+                <span class="skill-tag backend">JWT</span>
+                <span class="skill-tag backend">OAuth 2.0</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3><i class="fas fa-database"></i> Database</h3>
+              <div class="skill-list">
+                <span class="skill-tag database">MongoDB</span>
+                <span class="skill-tag database">Atlas Search</span>
+                <span class="skill-tag database">Indexing</span>
+                <span class="skill-tag database">Redis</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+              <div class="skill-list">
+                <span class="skill-tag tools">Git</span>
+                <span class="skill-tag tools">Docker</span>
+                <span class="skill-tag tools">Postman</span>
+                <span class="skill-tag tools">VS Code</span>
+                <span class="skill-tag tools">Jest</span>
+                <span class="skill-tag tools">BurpSuite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="education-section">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <div class="education-timeline">
+            <div class="education-item">
+              <div class="education-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="education-content">
+                <h3>Bachelor of Technology (B.Tech)</h3>
+                <h4>Information Technology</h4>
+                <p>Sri Krishna College Of Engineering And Technology</p>
+                <span class="year">2019 - 2023</span>
+                <p class="grade">CGPA: 8.18/10</p>
+              </div>
+            </div>
+            <div class="education-item">
+              <div class="education-icon">
+                <i class="fas fa-school"></i>
+              </div>
+              <div class="education-content">
+                <h3>Higher Secondary Certificate (HSC)</h3>
+                <h4>Biology</h4>
+                <p>Bharathi Higher Secondary School</p>
+                <span class="year">2018 - 2019</span>
+                <p class="grade">Percentage: 85.16%</p>
+              </div>
+            </div>
+            <div class="education-item">
+              <div class="education-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="education-content">
+                <h3>Secondary School Leaving Certificate (SSLC)</h3>
+                <h4>General Studies</h4>
+                <p>Bharathi Higher Secondary School</p>
+                <span class="year">2016 - 2017</span>
+                <p class="grade">Percentage: 93.8%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section id="certifications" class="certifications-section">
+        <div class="container">
+          <h2 class="section-title">Certifications</h2>
+          <div class="certifications-grid">
+            <div class="cert-card">
+              <div class="cert-icon">
+                <i class="fab fa-aws"></i>
+              </div>
+              <h3>MongoDB Atlas Search</h3>
+              <p>MongoDB University</p>
+              <span class="cert-date">March 2023</span>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">
+                <i class="fab fa-google"></i>
+              </div>
+              <h3>Advanced Queries with Atlas Search</h3>
+              <p>Google Cloud Platform</p>
+              <span class="cert-date">June 2024</span>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">
+                <i class="fab fa-js-square"></i>
+              </div>
+              <h3>Managing Atlas Search Indexes</h3>
+              <p>FreeCodeCamp</p>
+              <span class="cert-date">June 2024</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards Section -->
+      <section id="awards" class="awards-section">
+        <div class="container">
+          <h2 class="section-title">Awards & Recognition</h2>
+          <div class="awards-grid">
+            <div class="award-card">
+              <div class="award-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div class="award-content">
+                <h3>Technical Excellence</h3>
+                <p>Avow Solutions Inc.</p>
+                <span class="award-year">2024</span>
+                <p class="award-description">
+                  Recognized for outstanding performance and technical
+                  excellence at the 2023–2024 Annual General Meeting. This award
+                  acknowledges innovative solutions and exceptional contribution
+                  to the company's technical growth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap Section
+      <section id="roadmap" class="roadmap-section">
+        <div class="container">
+          <h2 class="section-title">Learning Roadmap</h2>
+          <div class="roadmap-timeline">
+
+            SVG Route Path
+
+            <div class="roadmap-path">
+              <svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient
+                    id="roadmapGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #2563eb; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="50%"
+                      style="stop-color: #7c3aed; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #2563eb; stop-opacity: 1"
+                    />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M 100 100 Q 300 50 500 150 Q 700 250 900 200 Q 1100 150 1000 350 Q 900 550 700 500 Q 500 450 300 550 Q 200 600 250 650"
+                  stroke="url(#roadmapGradient)"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-dasharray="10,5"
+                />
+              </svg>
+            </div>
+
+            Roadmap Items
+            <div class="roadmap-item">
+              <div class="roadmap-node">
+                <div class="roadmap-dot completed">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="roadmap-content">
+                  <h3>Full Stack Foundation</h3>
+                  <span class="roadmap-status completed">Completed</span>
+                  <div class="roadmap-skills">
+                    <span>HTML/CSS</span>
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-node">
+                <div class="roadmap-dot completed">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="roadmap-content">
+                  <h3>Modern Frameworks</h3>
+                  <span class="roadmap-status completed">Completed</span>
+                  <div class="roadmap-skills">
+                    <span>Vue.js</span>
+                    <span>Express.js</span>
+                    <span>Koa.js</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-node">
+                <div class="roadmap-dot completed">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="roadmap-content">
+                  <h3>Authentication</h3>
+                  <span class="roadmap-status completed">Completed</span>
+                  <div class="roadmap-skills">
+                    <span>JWT</span>
+                    <span>Passport Js</span>
+                    <span>OAuth 2.0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-node">
+                <div class="roadmap-dot completed">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="roadmap-content">
+                  <h3>Advanced MongoDB</h3>
+                  <span class="roadmap-status completed">Completed</span>
+                  <div class="roadmap-skills">
+                    <span>Local Deployment</span>
+                    <span>Indexing</span>
+                    <span>Atlas Search</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-node">
+                <div class="roadmap-dot completed">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="roadmap-content">
+                  <h3>Caching</h3>
+                  <span class="roadmap-status completed">Completed</span>
+                  <div class="roadmap-skills">
+                    <span>Client Side Caching - TanStack </span>
+                    <span>Server Side Caching - LRU Cache </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-node">
+                <div class="roadmap-dot in-progress">
+                  <i class="fas fa-cog fa-spin"></i>
+                </div>
+                <div class="roadmap-content">
+                  <h3>New Technology</h3>
+                  <span class="roadmap-status in-progress">In Progress</span>
+                  <div class="roadmap-skills">
+                    <span>Go Lang</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-node">
+                <div class="roadmap-dot planned">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="roadmap-content">
+                  <h3>AI & Machine Learning</h3>
+                  <span class="roadmap-status planned">Planned</span>
+                  <p>
+                    Planning to explore AI integration, machine learning, and
+                    data science
+                  </p>
+                  <div class="roadmap-skills">
+                    <span>Python ML</span>
+                    <span>TensorFlow</span>
+                    <span>AI APIs</span>
+                    <span>Data Science</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="contact-content">
+            <div class="contact-info">
+              <h3>Let's work together!</h3>
+              <p>
+                I'm always interested in new opportunities and exciting
+                projects. Feel free to reach out if you'd like to discuss
+                potential collaborations.
+              </p>
+
+              <div class="contact-details">
+                <div class="contact-item" onclick="openEmail()">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <h4>Email</h4>
+                    <p class="fs-medium">naveensk1672002@gmail.com</p>
+                  </div>
+                </div>
+                <div class="contact-item" onclick="openPhone()">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <h4>Phone</h4>
+                    <p class="fs-medium">+91 7871898927</p>
+                  </div>
+                </div>
+                <div class="contact-item" onclick="openLinkedIn()">
+                  <i class="fab fa-linkedin"></i>
+                  <div>
+                    <h4>LinkedIn</h4>
+                    <p class="fs-medium">
+                      https://www.linkedin.com/in/naveen-the-dev/
+                    </p>
+                  </div>
+                </div>
+                <div class="contact-item" onclick="openGitHub()">
+                  <i class="fab fa-github"></i>
+                  <div>
+                    <h4>GitHub</h4>
+                    <p class="fs-medium">https://github.com/naveen-the-dev</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    <h4>Location</h4>
+                    <p class="fs-medium">San Francisco, CA</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; 2025 Naveen S. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" onclick="openLinkedIn()"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" onclick="openGitHub()"><i class="fab fa-github"></i></a>
+            <a href="#" onclick="openTwitter()"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" onclick="openEmail()"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </main>
 
     <script src="script.js"></script>
   </body>
