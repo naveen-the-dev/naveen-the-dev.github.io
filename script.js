@@ -1,34 +1,29 @@
-// Navigation functionality
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
-const navLinks = document.querySelectorAll(".nav-link");
+// // Dynamic text animation - Full role titles
+// const dynamicWords = [
+//   "Full Stack Developer",
+//   "Backend Developer",
+//   "MongoDB Expert",
+// ];
+// let currentWordIndex = 0;
+// const dynamicTextElement = document.querySelector(".dynamic-text");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-});
+// function updateDynamicText() {
+//   if (dynamicTextElement) {
+//     dynamicTextElement.style.opacity = "0";
 
-// Close mobile menu when clicking on a link
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-  });
-});
+//     setTimeout(() => {
+//       dynamicTextElement.textContent = dynamicWords[currentWordIndex];
+//       dynamicTextElement.style.opacity = "1";
+//       currentWordIndex = (currentWordIndex + 1) % dynamicWords.length;
+//     }, 300);
+//   }
+// }
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  });
-});
+// // Start dynamic text animation
+// if (dynamicTextElement) {
+//   dynamicTextElement.textContent = dynamicWords[0];
+//   setInterval(updateDynamicText, 3000);
+// }
 
 // Typewriter effect for hero subtitle
 const typewriterText = [
@@ -60,7 +55,7 @@ function typewriter() {
   let typeSpeed = 100;
 
   if (isDeleting) {
-    typeSpeed /= 2;
+    typeSpeed /= 1;
   }
 
   if (!isDeleting && charIndex === typewriterText[textIndex].length) {
@@ -69,7 +64,7 @@ function typewriter() {
   } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
     textIndex = (textIndex + 1) % typewriterText.length;
-    typeSpeed = 500;
+    typeSpeed = 0;
   }
 
   setTimeout(typewriter, typeSpeed);
@@ -77,11 +72,87 @@ function typewriter() {
 
 // Start typewriter effect when page loads
 document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(typewriter, 1000);
+  setTimeout(typewriter, 0);
 
   // Initialize Lucide icons
   if (typeof lucide !== "undefined") {
     lucide.createIcons();
+  }
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      const offsetTop = target.offsetTop - 90; // Account for top navbar
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  });
+});
+
+// Active navigation highlighting
+function updateActiveNav() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  let currentSection = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.offsetHeight;
+
+    if (
+      window.scrollY >= sectionTop &&
+      window.scrollY < sectionTop + sectionHeight
+    ) {
+      currentSection = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${currentSection}`) {
+      link.classList.add("active");
+    }
+  });
+}
+
+// Update active nav on scroll
+window.addEventListener("scroll", updateActiveNav);
+
+// Mobile menu toggle
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+const verticalSidebar = document.querySelector(".vertical-sidebar");
+
+if (mobileMenuToggle) {
+  mobileMenuToggle.addEventListener("click", function () {
+    verticalSidebar.classList.toggle("active");
+  });
+}
+
+// Close sidebar when clicking on a link (mobile)
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 1024) {
+      verticalSidebar.classList.remove("active");
+    }
+  });
+});
+
+// Close sidebar when clicking outside (mobile)
+document.addEventListener("click", function (event) {
+  if (window.innerWidth <= 1024) {
+    if (
+      !verticalSidebar.contains(event.target) &&
+      !mobileMenuToggle.contains(event.target)
+    ) {
+      verticalSidebar.classList.remove("active");
+    }
   }
 });
 
@@ -91,237 +162,223 @@ const observerOptions = {
   rootMargin: "0px 0px -50px 0px",
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(function (entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.style.opacity = "1";
       entry.target.style.transform = "translateY(0)";
-
-      // Animate skill bars
-      if (entry.target.classList.contains("skill-category")) {
-        animateSkillBars(entry.target);
-      }
-
-      // Animate timeline items
-      if (entry.target.classList.contains("timeline-item")) {
-        entry.target.classList.add("fade-in");
-      }
     }
   });
 }, observerOptions);
 
-// Observe elements for animation
-document
-  .querySelectorAll(
-    ".timeline-item, .skill-category, .about-content, .contact-content"
-  )
-  .forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-    observer.observe(el);
-  });
-
-// Animate skill bars
-function animateSkillBars(skillCategory) {
-  const skillBars = skillCategory.querySelectorAll(".skill-progress");
-  skillBars.forEach((bar) => {
-    const width = bar.getAttribute("data-width");
-    setTimeout(() => {
-      bar.style.width = width + "%";
-    }, 300);
-  });
-}
-
-// Navbar background on scroll
-window.addEventListener("scroll", () => {
-  const navbar = document.getElementById("navbar");
-  if (window.scrollY > 50) {
-    navbar.style.background = "rgba(255, 255, 255, 0.98)";
-    navbar.style.borderBottom = "1px solid rgba(0, 0, 0, 0.15)";
-  } else {
-    navbar.style.background = "rgba(255, 255, 255, 0.95)";
-    navbar.style.borderBottom = "1px solid rgba(0, 0, 0, 0.1)";
-  }
+// Add animation classes
+const animateElements = document.querySelectorAll(
+  ".timeline-item, .skill-category, .cert-card, .award-card, .education-item, .roadmap-item, .project-card"
+);
+animateElements.forEach((el) => {
+  el.style.opacity = "0";
+  el.style.transform = "translateY(30px)";
+  el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  observer.observe(el);
 });
 
-// Active navigation link highlighting
-window.addEventListener("scroll", () => {
-  let current = "";
-  const sections = document.querySelectorAll("section");
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (window.pageYOffset >= sectionTop - 200) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
-
-// Modal functionality
-function openResumeModal() {
-  document.getElementById("resumeModal").style.display = "block";
-  document.body.style.overflow = "hidden";
+// Contact interaction functions
+function openEmail() {
+  window.location.href = "mailto:john.doe@email.com";
 }
 
-function closeResumeModal() {
-  document.getElementById("resumeModal").style.display = "none";
-  document.body.style.overflow = "auto";
-}
-
-// Close modal when clicking outside of it
-window.addEventListener("click", (event) => {
-  const modal = document.getElementById("resumeModal");
-  if (event.target === modal) {
-    closeResumeModal();
-  }
-});
-
-// Resume download functionality
-function downloadResume() {
-  // In a real application, this would download an actual PDF file
-  alert(
-    "Resume download would start here. In a real application, this would download a PDF file."
+function openResume() {
+  window.open(
+    "https://drive.google.com/file/d/16yJSNqNZD-rcotlTOKrwln12TpS2mQDo/view?usp=sharing",
+    "_blank"
   );
 }
 
-// Add loading animation for page transitions
-window.addEventListener("beforeunload", () => {
-  document.body.style.opacity = "0";
-});
-
-// Parallax effect for hero section
-window.addEventListener("scroll", () => {
-  const scrolled = window.pageYOffset;
-  const heroContent = document.querySelector(".hero-content");
-  const heroImage = document.querySelector(".hero-image");
-
-  if (heroContent && heroImage) {
-    heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-    heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
-  }
-});
-
-// Add smooth entrance animations for timeline items
-const timelineObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-        }, index * 200);
-      }
-    });
-  },
-  {
-    threshold: 0.3,
-  }
-);
-
-document.querySelectorAll(".timeline-item").forEach((item) => {
-  timelineObserver.observe(item);
-});
-
-// Add CSS for active nav link
-const style = document.createElement("style");
-style.textContent = `
-    .nav-link.active {
-        color: #667eea !important;
-    }
-    .nav-link.active::after {
-        width: 100% !important;
-    }
-`;
-document.head.appendChild(style);
-
-// Keyboard navigation
-document.addEventListener("keydown", (e) => {
-  // Close modal with Escape key
-  if (e.key === "Escape") {
-    closeResumeModal();
-  }
-});
-
-// Add focus management for accessibility
-document
-  .querySelectorAll(".btn, .nav-link, input, textarea, .contact-icon-link")
-  .forEach((element) => {
-    element.addEventListener("focus", function () {
-      this.style.outline = "2px solid #667eea";
-      this.style.outlineOffset = "2px";
-    });
-
-    element.addEventListener("blur", function () {
-      this.style.outline = "none";
-    });
-  });
-
-// Performance optimization: lazy load images when they come into view
-const imageObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const img = entry.target;
-      if (img.dataset.src) {
-        img.src = img.dataset.src;
-        img.removeAttribute("data-src");
-        imageObserver.unobserve(img);
-      }
-    }
-  });
-});
-
-// Add smooth reveal animation for stats
-const statsObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const stats = entry.target.querySelectorAll(".stat h4");
-        stats.forEach((stat, index) => {
-          const finalValue = parseInt(stat.textContent);
-          let currentValue = 0;
-          const increment = finalValue / 50;
-
-          const counter = setInterval(() => {
-            currentValue += increment;
-            if (currentValue >= finalValue) {
-              stat.textContent =
-                finalValue + (stat.textContent.includes("+") ? "+" : "");
-              clearInterval(counter);
-            } else {
-              stat.textContent =
-                Math.floor(currentValue) +
-                (stat.textContent.includes("+") ? "+" : "");
-            }
-          }, 30);
-        });
-        statsObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
-
-const statsSection = document.querySelector(".stats");
-if (statsSection) {
-  statsObserver.observe(statsSection);
+function openPhone() {
+  window.open("tel:+15551234567", "_self");
 }
 
-// Contact icon hover effects
-document.querySelectorAll(".contact-icon-link").forEach((link) => {
-  link.addEventListener("mouseenter", function () {
-    this.style.transform = "translateY(-5px) scale(1.1)";
+function openLinkedIn() {
+  window.open("https://www.linkedin.com/in/naveen-the-dev/", "_blank");
+}
+
+function openGitHub() {
+  window.open("https://github.com/naveen-the-dev", "_blank");
+}
+
+function openTwitter() {
+  //   window.open("https://twitter.com/johndoe", "_blank");
+}
+
+function openLocation() {
+  window.open("https://maps.google.com/?q=San Francisco, CA", "_blank");
+}
+
+function openDemo() {
+  window.open("https://example.com", "_blank");
+}
+
+// Parallax effect for background elements
+window.addEventListener("scroll", function () {
+  const scrolled = window.pageYOffset;
+  const parallaxElements = document.querySelectorAll(".home-section::before");
+
+  parallaxElements.forEach((element) => {
+    const speed = 0.5;
+    element.style.transform = `translateY(${scrolled * speed}px)`;
+  });
+});
+
+// Add loading animation
+window.addEventListener("load", function () {
+  document.body.classList.add("loaded");
+});
+
+// Add CSS for loading animation
+const loadingStyle = document.createElement("style");
+loadingStyle.textContent = `
+    body {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    
+    body.loaded {
+        opacity: 1;
+    }
+`;
+document.head.appendChild(loadingStyle);
+
+// Add scroll-to-top functionality
+const scrollToTopBtn = document.createElement("button");
+scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollToTopBtn.className = "scroll-to-top";
+scrollToTopBtn.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+`;
+
+document.body.appendChild(scrollToTopBtn);
+
+// Show/hide scroll to top button
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 300) {
+    scrollToTopBtn.style.display = "flex";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+});
+
+// Scroll to top functionality
+scrollToTopBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+// Add hover effect to scroll to top button
+scrollToTopBtn.addEventListener("mouseenter", function () {
+  this.style.transform = "scale(1.1)";
+});
+
+scrollToTopBtn.addEventListener("mouseleave", function () {
+  this.style.transform = "scale(1)";
+});
+
+// Enhanced skills carousel with proper duplication
+function initializeSkillsCarousel() {
+  const skillsTrack = document.querySelector(".skills-track");
+  if (skillsTrack) {
+    const skillIcons = skillsTrack.innerHTML;
+    // Duplicate the content multiple times for seamless infinite scroll
+    skillsTrack.innerHTML = skillIcons + skillIcons + skillIcons;
+  }
+}
+
+// Initialize skills carousel on page load
+document.addEventListener("DOMContentLoaded", function () {
+  initializeSkillsCarousel();
+  updateActiveNav();
+});
+
+// Add typing effect to dynamic text
+function typeText(element, text, callback) {
+  let i = 0;
+  element.textContent = "";
+  element.style.opacity = "1";
+
+  const typeInterval = setInterval(() => {
+    element.textContent += text.charAt(i);
+    i++;
+
+    if (i >= text.length) {
+      clearInterval(typeInterval);
+      if (callback) callback();
+    }
+  }, 100);
+}
+
+// Enhanced dynamic text with typing effect
+// function updateDynamicTextWithTyping() {
+//   if (dynamicTextElement) {
+//     const currentWord = dynamicWords[currentWordIndex];
+
+//     // Clear current text
+//     dynamicTextElement.style.opacity = "0";
+
+//     setTimeout(() => {
+//       typeText(dynamicTextElement, currentWord, () => {
+//         currentWordIndex = (currentWordIndex + 1) % dynamicWords.length;
+//       });
+//     }, 0);
+//   }
+// }
+
+// Replace the original dynamic text function
+// if (dynamicTextElement) {
+//   typeText(dynamicTextElement, dynamicWords[0]);
+//   setInterval(updateDynamicTextWithTyping, 4000);
+// }
+
+// Handle window resize for sidebar
+window.addEventListener("resize", function () {
+  if (window.innerWidth > 1024) {
+    verticalSidebar.classList.remove("active");
+  }
+});
+
+// Add interactive effects to skill tags
+document.querySelectorAll(".skill-tag").forEach((tag) => {
+  tag.addEventListener("mouseenter", function () {
+    this.style.transform = "translateY(-3px) scale(1.05)";
   });
 
-  link.addEventListener("mouseleave", function () {
+  tag.addEventListener("mouseleave", function () {
     this.style.transform = "translateY(0) scale(1)";
+  });
+});
+
+// Add click effects to contact items
+document.querySelectorAll(".contact-item").forEach((item) => {
+  item.addEventListener("click", function () {
+    this.style.transform = "scale(0.95)";
+    setTimeout(() => {
+      this.style.transform = "translateY(-3px)";
+    }, 150);
   });
 });
