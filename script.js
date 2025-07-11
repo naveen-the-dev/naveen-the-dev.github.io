@@ -184,7 +184,7 @@ animateElements.forEach((el) => {
 
 // Contact interaction functions
 function openEmail() {
-  window.location.href = "mailto:john.doe@email.com";
+  window.location.href = "mailto:naveensk1672002@gmail.com";
 }
 
 function openResume() {
