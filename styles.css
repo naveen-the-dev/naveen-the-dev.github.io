@@ -999,7 +999,7 @@ body {
 }
 
 .skill-tag {
-  padding: 12px 20px;
+  padding: 3px 15px;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -1611,6 +1611,10 @@ body {
   color: #ffffff;
 }
 
+.contact-text {
+  width: 100%;
+}
+
 /* Footer */
 .footer {
   background: #1f2937;
@@ -1655,6 +1659,20 @@ body {
 
   .vertical-sidebar.active {
     transform: translateX(0);
+  }
+
+  .navbar-left {
+    margin-left: 60px;
+  }
+
+  .navbar-right {
+    padding: 0 20px;
+    height: 4000px;
+    width: calc(100% - 60px);
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
   }
 
   .sidebar-menu {
