@@ -11,13 +11,28 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-72VXRHPKY9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-72VXRHPKY9");
+    </script>
   </head>
   <body>
     <!-- Top Navigation Bar -->
     <div class="top-navbar">
       <div class="navbar-left">
         <div class="nav-logo">
-          <h2>< Naveen S /></h2>
+          <h2>Portfolio</h2>
         </div>
         <span class="open-to-work">
           <i class="fas fa-circle"></i>
@@ -25,11 +40,11 @@
         </span>
       </div>
       <div class="navbar-right">
-        <div class=" ">
+        <div class="">
           <i class="fas fa-envelope"></i>
           <span>naveensk1672002@gmail.com</span>
         </div>
-        <div class=" ">
+        <div class="">
           <i class="fas fa-phone"></i>
           <span>+91 7871898927</span>
         </div>
@@ -511,7 +526,7 @@
           <div class="certifications-grid">
             <div class="cert-card">
               <div class="cert-icon">
-                <i class="fab fa-aws"></i>
+                <i class="fas fa-database"></i>
               </div>
               <h3>MongoDB Atlas Search</h3>
               <p>MongoDB University</p>
@@ -519,7 +534,7 @@
             </div>
             <div class="cert-card">
               <div class="cert-icon">
-                <i class="fab fa-google"></i>
+                <i class="fas fa-database"></i>
               </div>
               <h3>Advanced Queries with Atlas Search</h3>
               <p>Google Cloud Platform</p>
@@ -527,7 +542,7 @@
             </div>
             <div class="cert-card">
               <div class="cert-icon">
-                <i class="fab fa-js-square"></i>
+                <i class="fas fa-database"></i>
               </div>
               <h3>Managing Atlas Search Indexes</h3>
               <p>FreeCodeCamp</p>
@@ -746,21 +761,21 @@
               <div class="contact-details">
                 <div class="contact-item" onclick="openEmail()">
                   <i class="fas fa-envelope"></i>
-                  <div>
+                  <div class="contact-text">
                     <h4>Email</h4>
                     <p class="fs-medium">naveensk1672002@gmail.com</p>
                   </div>
                 </div>
                 <div class="contact-item" onclick="openPhone()">
                   <i class="fas fa-phone"></i>
-                  <div>
+                  <div class="contact-text">
                     <h4>Phone</h4>
                     <p class="fs-medium">+91 7871898927</p>
                   </div>
                 </div>
                 <div class="contact-item" onclick="openLinkedIn()">
                   <i class="fab fa-linkedin"></i>
-                  <div>
+                  <div class="contact-text">
                     <h4>LinkedIn</h4>
                     <p class="fs-medium">
                       https://www.linkedin.com/in/naveen-the-dev/
@@ -769,16 +784,16 @@
                 </div>
                 <div class="contact-item" onclick="openGitHub()">
                   <i class="fab fa-github"></i>
-                  <div>
+                  <div class="contact-text">
                     <h4>GitHub</h4>
                     <p class="fs-medium">https://github.com/naveen-the-dev</p>
                   </div>
                 </div>
                 <div class="contact-item">
                   <i class="fas fa-map-marker-alt"></i>
-                  <div>
+                  <div class="contact-text">
                     <h4>Location</h4>
-                    <p class="fs-medium">San Francisco, CA</p>
+                    <p class="fs-medium">Chennai, Tamilnadu, India</p>
                   </div>
                 </div>
               </div>
@@ -810,4 +825,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
