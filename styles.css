@@ -793,6 +793,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  .open-to-work {
+    display: none;
+  }
+
   .roadmap-node {
     flex-direction: column;
     text-align: center;
