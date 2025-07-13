@@ -189,7 +189,7 @@ function openEmail() {
 
 function openResume() {
   window.open(
-    "https://drive.google.com/file/d/16yJSNqNZD-rcotlTOKrwln12TpS2mQDo/view?usp=sharing",
+    "https://drive.google.com/file/d/10JEDhGExEEmFXv1XFJfHrQD6oUbX122s/view?usp=sharing",
     "_blank"
   );
 }
